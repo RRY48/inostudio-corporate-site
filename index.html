@@ -40,14 +40,10 @@
 
   <!-- Первый экран -->
   <section class="hero">
-    <!-- Фоновое видео с YouTube (без звука, autoplay, loop) -->
-    <iframe class="hero-video-bg"
-      src="https://www.youtube.com/embed/QcdXP4e8xLA?autoplay=1&mute=1&loop=1&playlist=QcdXP4e8xLA&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1"
-      title="Видео о работе Иностудио"
-      frameborder="0"
-      allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
+    <!-- Фоновое видео: шоурил компании (без звука, autoplay, loop) -->
+    <video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+      <source src="video/hero-bg.mp4" type="video/mp4">
+    </video>
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-eyebrow">🧠 Разработка • ИИ • Аналитика данных • HR-tech</div>
