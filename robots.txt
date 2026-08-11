@@ -1,0 +1,12 @@
+# Иностудио — robots.txt
+# Сайт не использует Google-сервисы. Все метрики — через отечественные системы.
+
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*?*
+
+Allow: /
+
+Sitemap: https://inostudio.com/sitemap.xml

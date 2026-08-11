@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Иностудио — Разработка и интеграции, HR-tech, ИИ-решения, аналитика и BI</title>
+  <meta name="description" content="Иностудио — цифровые продукты, которые снижают издержки и ускоряют решения. Разработка и интеграции, HR-tech, ИИ-решения и интеллектуальные ассистенты, аналитика данных и BI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <!-- Шапка -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Первый экран -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">🧠 Разработка • ИИ • Аналитика данных • HR-tech</div>
+        <h1>Цифровые продукты, которые <span class="gradient-text">снижают издержки</span> и ускоряют решения</h1>
+        <p class="hero-sub">
+          Разрабатываем и интегрируем личные кабинеты и B2B-порталы, внедряем HR-tech решения,
+          ИИ-ассистентов и базы знаний, строим аналитику и BI-дашборды для принятия управленческих решений.
+        </p>
+        <div class="hero-actions">
+          <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+          <a href="projects.html" class="btn btn-outline">Смотреть кейсы</a>
+        </div>
+
+        <!-- Блок логотипов клиентов (после слогана) -->
+        <div class="hero-clients">
+          <p>Нам доверяют крупные российские компании</p>
+          <div class="clients-row">
+            <span class="client-logo">МТС Финтех</span>
+            <span class="client-logo">Альфа-Банк</span>
+            <span class="client-logo">Lamoda</span>
+            <span class="client-logo">БСПБ</span>
+            <span class="client-logo">ДиПОС</span>
+            <span class="client-logo">Р7</span>
+            <span class="client-logo">СЛПК</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Видео-заглушка в hero -->
+        <div class="video-placeholder" style="position: absolute; top: -20px; right: 0; width: 70%; z-index: 1;">
+          <div class="video-thumb">
+            <div class="play-btn">▶</div>
+          </div>
+          <div class="video-caption">Шоурил Иностудио — 2 мин</div>
+        </div>
+        <div class="hero-card hero-card-b2b">
+          <div class="card-label"><span class="icon icon-b2b">💼</span> B2B-портал и личный кабинет</div>
+          <div class="flow-row">
+            <span class="flow-dot"></span> Заявка клиента
+            <span class="flow-line"></span>
+            <span class="flow-dot" style="background: var(--red);"></span> ERP / CRM
+          </div>
+        </div>
+        <div class="hero-card hero-card-ai">
+          <div class="card-label"><span class="icon icon-ai">🤖</span> ИИ-ассистент</div>
+          <div class="chat-bubbles">
+            <div class="bubble bubble-user">Какой срок поставки?</div>
+            <div class="bubble bubble-ai"><strong>ИИ:</strong> Заказ №4821 — отгрузка 12 марта ✓</div>
+          </div>
+        </div>
+        <div class="hero-card hero-card-bi">
+          <div class="card-label"><span class="icon icon-bi">📊</span> BI-дашборд</div>
+          <div class="mini-bars">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Направления (4 карточки) -->
+  <section class="section" id="directions">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Направления</div>
+        <h2>Четыре направления — единый цифровой контур</h2>
+        <p>Мы проектируем не «услуги», а измеримый результат: снижение операционных издержек, ускорение обслуживания, рост выручки.</p>
+      </div>
+
+      <div class="directions-grid">
+        <div class="direction-card reveal">
+          <div class="direction-icon" style="background: rgba(22,159,219,0.12);">💼</div>
+          <h3>B2B-порталы и личные кабинеты</h3>
+          <p>Личные кабинеты клиентов и партнёров, B2B-порталы, интеграции с ERP, CRM и внешними API. Снижаем нагрузку на поддержку и ускоряем обслуживание.</p>
+          <div class="direction-tags">
+            <span class="tag tag-blue">Личные кабинеты</span>
+            <span class="tag tag-blue">B2B-порталы</span>
+            <span class="tag tag-blue">Интеграции</span>
+          </div>
+          <a href="solutions-b2b.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+
+        <div class="direction-card reveal">
+          <div class="direction-icon" style="background: rgba(251,187,33,0.15);">🧑‍💼</div>
+          <h3>HR-tech решения</h3>
+          <p>Карьерные сайты, системы управления талантами (TMS), атлас профессий. Инструменты для найма, онбординга и управления персоналом.</p>
+          <div class="direction-tags">
+            <span class="tag tag-yellow">Карьерные сайты</span>
+            <span class="tag tag-yellow">TMS</span>
+            <span class="tag tag-yellow">Атлас профессий</span>
+          </div>
+          <a href="solutions-hr.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+
+        <div class="direction-card reveal">
+          <div class="direction-icon" style="background: rgba(228,0,58,0.12);">🤖</div>
+          <h3>ИИ-решения и интеллектуальные ассистенты</h3>
+          <p>Базы знаний с ИИ-агентами, модули персонализации, предиктивные модели. Автоматизация рутины и ответы клиентам за секунды — 24/7.</p>
+          <div class="direction-tags">
+            <span class="tag tag-red">Базы знаний с ИИ</span>
+            <span class="tag tag-red">ИИ-агенты</span>
+            <span class="tag tag-red">Предиктивные модели</span>
+          </div>
+          <a href="solutions-ai.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+
+        <div class="direction-card reveal">
+          <div class="direction-icon" style="background: rgba(0,169,132,0.12);">📊</div>
+          <h3>Аналитика данных и&nbsp;BI</h3>
+          <p>BI-дашборды, предиктивная аналитика, визуализация данных для решений руководителя. Единая картина по продукту, продажам и операциям.</p>
+          <div class="direction-tags">
+            <span class="tag tag-green">BI-дашборды</span>
+            <span class="tag tag-green">Предиктивная аналитика</span>
+            <span class="tag tag-green">Визуализация</span>
+          </div>
+          <a href="solutions-bi.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Целевые решения (вместо кейсов) -->
+  <section class="section" style="background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Целевые решения</div>
+        <h2>Готовые сценарии для вашего бизнеса</h2>
+        <p>Не «услуги», а решения, которые решают конкретную задачу компании.</p>
+      </div>
+
+      <div class="solution-showcase">
+        <div class="showcase-card reveal">
+          <div class="icon">👤</div>
+          <h3>Личный кабинет клиента</h3>
+          <p>Заявки, документы, платежи и статусы в одном месте. Самообслуживание снижает нагрузку на поддержку и повышает NPS.</p>
+          <a href="solutions-b2b.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+        <div class="showcase-card reveal">
+          <div class="icon">🏢</div>
+          <h3>B2B-портал поставщиков</h3>
+          <p>Каталоги, заказы, документооборот и аналитика для дилеров и поставщиков. Интеграция с ERP и CRM.</p>
+          <a href="solutions-b2b.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+        <div class="showcase-card reveal">
+          <div class="icon">💼</div>
+          <h3>Карьерный сайт</h3>
+          <p>Привлечение сильных кандидатов: личный кабинет кандидата, интеграция с HR-системами, аналитика воронки найма.</p>
+          <a href="solutions-hr.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+        <div class="showcase-card reveal">
+          <div class="icon">🤖</div>
+          <h3>ИИ-ассистент поддержки</h3>
+          <p>Базы знаний с ИИ-агентами отвечают клиентам 24/7, обучаются на ваших документах и передают сложные обращения людям.</p>
+          <a href="solutions-ai.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+        <div class="showcase-card reveal">
+          <div class="icon">📊</div>
+          <h3>BI-дашборд руководителя</h3>
+          <p>Продажи, финансы и операции на одном экране. Предиктивная аналитика и алерты об отклонениях.</p>
+          <a href="solutions-bi.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+        <div class="showcase-card reveal">
+          <div class="icon">🎯</div>
+          <h3>Предиктивные модели</h3>
+          <p>Прогноз спроса, оттока и кассовых разрывов. Данные помогают действовать на опережение.</p>
+          <a href="solutions-ai.html" class="direction-link">Подробнее <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Компания в цифрах (цифры из КП) -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">О компании</div>
+        <h2>Иностудио в цифрах</h2>
+        <p>20 лет непрерывного развития и более 350 проектов для крупного бизнеса и государства.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <h3>100+</h3>
+          <p>специалистов на территории РФ</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3>99,6%</h3>
+          <p>отказоустойчивость проектов заказчиков</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3>30+</h3>
+          <p>российских и международных клиентов</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3>20+</h3>
+          <p>лет непрерывного развития</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3>24/7</h3>
+          <p>на связи</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Технологии и стандарты -->
+  <section class="section tech-section" id="tech">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Технологии и стандарты</div>
+        <h2>Работаем по стандартам, отвечаем за безопасность</h2>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item reveal">
+          <div class="icon">📜</div>
+          <h4>ISO 9001</h4>
+          <p>Система менеджмента качества</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🔐</div>
+          <h4>ISO 27001</h4>
+          <p>Информационная безопасность</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🏦</div>
+          <h4>ФинЦЕРТ Банка России</h4>
+          <p>Обмен данными о компьютерных атаках</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🛡️</div>
+          <h4>99,6% доступность</h4>
+          <p>Отказоустойчивая инфраструктура</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🌟</div>
+          <h4>1С-Битрикс</h4>
+          <p>Сертифицированный партнёр, CMS №1 в России</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🌐</div>
+          <h4>Современный стек</h4>
+          <p>Laravel, Node.js, Python, React, Vue</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🤖</div>
+          <h4>ИИ и данные</h4>
+          <p>Языковые модели, базы знаний, ML</p>
+        </div>
+        <div class="tech-item reveal">
+          <div class="icon">🚀</div>
+          <h4>DevOps</h4>
+          <p>CI/CD, мониторинг, SLA-поддержка</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Как мы работаем (сокращённая версия + модели контрактов) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-label">Как мы работаем</div>
+        <h2>Прозрачный процесс и гибкие модели контрактов</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="icon">🔍</div>
+          <h4>Диагностика</h4>
+          <p>Изучаем процессы, данные и задачи. 2–3 недели.</p>
+        </div>
+        <div class="step reveal">
+          <div class="icon">📐</div>
+          <h4>Проектирование</h4>
+          <p>Прототип, архитектура, дорожная карта и бюджет.</p>
+        </div>
+        <div class="step reveal">
+          <div class="icon">⚙️</div>
+          <h4>Разработка</h4>
+          <p>Короткие итерации, демо каждые 2 недели.</p>
+        </div>
+        <div class="step reveal">
+          <div class="icon">📈</div>
+          <h4>Развитие</h4>
+          <p>Аналитика использования, доработки, SLA-поддержка.</p>
+        </div>
+      </div>
+
+      <div class="models-grid">
+        <div class="model-card reveal">
+          <div class="icon">📦</div>
+          <h4>Проект под ключ</h4>
+          <p>Фиксированный объём, сроки и бюджет.</p>
+        </div>
+        <div class="model-card reveal">
+          <div class="icon">⏱️</div>
+          <h4>Time & Material</h4>
+          <p>Команда под ваши задачи с почасовой оплатой.</p>
+        </div>
+        <div class="model-card reveal">
+          <div class="icon">🤝</div>
+          <h4>Выделенная команда</h4>
+          <p>Интеграция наших специалистов в вашу команду.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Призыв к действию -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Обсудим ваш проект?</h2>
+        <p>Расскажите о задаче — предложим решение, архитектуру и план внедрения. Отвечаем в течение одного рабочего дня.</p>
+        <a href="contacts.html" class="btn btn-light">Связаться с нами</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:m.dedovich@inostudio.com">m.dedovich@inostudio.com</a></li>
+            <li><a href="tel:+79081892366">+7 (908) 189-23-66</a></li>
+            <li>Москва</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

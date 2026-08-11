@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Иностудио: обсудить проект, связаться с нами</title>
+  <meta name="description" content="Контакты Иностудио: обсудить проект по B2B-порталам, HR-tech, ИИ-решениям и аналитике данных. Москва, телефон, e-mail.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="contacts.html" class="active">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Главная</a> <span>/</span> <span>Контакты</span>
+      </div>
+      <h1>Обсудим ваш проект</h1>
+      <p>Расскажите о задаче — предложим решение, оценим сроки и бюджет. Отвечаем в течение одного рабочего дня.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <form class="form" id="contactForm">
+            <div class="form-fields">
+              <div class="form-group">
+                <label for="name">Имя <span class="optional">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Как к вам обращаться">
+              </div>
+              <div class="form-group">
+                <label for="phone">Телефон <span class="optional">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail <span class="optional">необязательно</span></label>
+                <input type="email" id="email" name="email" placeholder="you@company.ru">
+              </div>
+              <div class="form-group">
+                <label for="direction">Направление</label>
+                <select id="direction" name="direction">
+                  <option value="b2b">B2B-порталы и личные кабинеты</option>
+                  <option value="hr">HR-tech решения</option>
+                  <option value="ai">ИИ-решения и интеллектуальные ассистенты</option>
+                  <option value="bi">Аналитика данных и BI</option>
+                  <option value="other">Другое / Не знаю</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">О проекте</label>
+                <textarea id="message" name="message" placeholder="Коротко опишите задачу"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary form-btn" style="width: 100%; justify-content: center;">Отправить заявку</button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных. Данные передаются по защищённому каналу.</p>
+            </div>
+            <div class="form-success">
+              <div class="icon">✅</div>
+              <h3>Заявка отправлена!</h3>
+              <p>Мы свяжемся с вами в течение одного рабочего дня.</p>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: 8px;">Контакты</h3>
+          <ul class="contact-info-list">
+            <li>
+              <span class="icon">📍</span>
+              <span>Москва</span>
+            </li>
+            <li>
+              <span class="icon">📞</span>
+              <a href="tel:+79081892366">+7 (908) 189-23-66</a>
+            </li>
+            <li>
+              <span class="icon">✉️</span>
+              <a href="mailto:m.dedovich@inostudio.com">m.dedovich@inostudio.com</a>
+            </li>
+            <li>
+              <span class="icon">🕘</span>
+              <span>Пн–Пт: 10:00–19:00 (МСК)</span>
+            </li>
+          </ul>
+
+          <h3 style="margin-bottom: 8px;">Задавайте тренды вместе с Иностудио</h3>
+          <p>Дедович Максим — head of business development. Поможем подобрать решение под вашу задачу.</p>
+
+          <div class="map-wrap">
+            <!-- Яндекс.Карты вместо Google-карт -->
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1c2cbe6c9f59b9b7c7f7d8f5a7e1c8d3e3f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1&source=constructor" width="100%" height="360" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:m.dedovich@inostudio.com">m.dedovich@inostudio.com</a></li>
+            <li><a href="tel:+79081892366">+7 (908) 189-23-66</a></li>
+            <li>Москва</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

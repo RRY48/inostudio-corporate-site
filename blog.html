@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Блог — Иностудио: B2B, HR-tech, ИИ, аналитика и BI</title>
+  <meta name="description" content="Блог Иностудио: статьи о B2B-порталах, личных кабинетах, HR-tech решениях, ИИ-решениях, аналитике данных и BI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html" class="active">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Главная</a> <span>/</span> <span>Блог</span>
+      </div>
+      <h1>Блог о технологиях и бизнесе</h1>
+      <p>Практический опыт: B2B-порталы, HR-tech, ИИ-решения, аналитика и BI. Без воды — только то, что работает.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-btn active" data-filter="all">Все статьи</button>
+        <button class="filter-btn" data-filter="b2b">B2B-порталы и ЛК</button>
+        <button class="filter-btn" data-filter="hr">HR-tech</button>
+        <button class="filter-btn" data-filter="ai">ИИ-решения</button>
+        <button class="filter-btn" data-filter="bi">Аналитика и BI</button>
+      </div>
+
+      <div class="blog-grid" id="blogGrid">
+
+        <div class="blog-card reveal" data-category="ai">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(106,76,255,0.08));">🤖</div>
+          <div class="blog-body">
+            <div class="blog-meta">ИИ-решения · 12 мин</div>
+            <h3>Как внедрить базу знаний с ИИ-агентом: пошаговый план</h3>
+            <p>Что нужно, чтобы ИИ-ассистент отвечал на 80% вопросов поддержки. Реальные этапы внедрения.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="bi">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(0,169,132,0.08), rgba(56,189,248,0.08));">📊</div>
+          <div class="blog-body">
+            <div class="blog-meta">Аналитика и BI · 8 мин</div>
+            <h3>BI-дашборд для руководителя: 5 метрик, которые важны</h3>
+            <p>Какие показатели должны быть на дашборде первого экрана, чтобы решения принимались быстро.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="b2b">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.08), rgba(0,169,132,0.08));">💼</div>
+          <div class="blog-body">
+            <div class="blog-meta">B2B-порталы · 10 мин</div>
+            <h3>Личный кабинет клиента: с чего начать и что учесть</h3>
+            <p>Проектируем личный кабинет: роли, сценарии, интеграции с учётными системами.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="hr">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(251,187,33,0.12), rgba(228,0,58,0.06));">🧑‍💼</div>
+          <div class="blog-body">
+            <div class="blog-meta">HR-tech · 9 мин</div>
+            <h3>Карьерный сайт, который привлекает сильных кандидатов</h3>
+            <p>Как устроен эффективный карьерный портал: воронка, контент, аналитика найма.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="bi">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(0,169,132,0.08), rgba(14,165,233,0.08));">🔮</div>
+          <div class="blog-body">
+            <div class="blog-meta">Аналитика и BI · 9 мин</div>
+            <h3>Прогноз спроса, оттока и остатков: как модели помогают бизнесу</h3>
+            <p>Где предиктивная аналитика окупается быстрее всего и как оценить точность моделей.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="b2b">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.08), rgba(228,0,58,0.06));">🔗</div>
+          <div class="blog-body">
+            <div class="blog-meta">B2B-порталы · 6 мин</div>
+            <h3>Интеграция ERP и веб-портала: типовые ошибки</h3>
+            <p>Как избежать проблем при интеграции портала с учётной системой. Практический чек-лист.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="hr">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(251,187,33,0.12), rgba(0,169,132,0.06));">🗺️</div>
+          <div class="blog-body">
+            <div class="blog-meta">HR-tech · 7 мин</div>
+            <h3>Атлас профессий: как помочь сотрудникам расти</h3>
+            <p>Интерактивная карта профессий и компетенций для навигации по карьерным трекам.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="ai">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(22,159,219,0.06));">🎯</div>
+          <div class="blog-body">
+            <div class="blog-meta">ИИ-решения · 7 мин</div>
+            <h3>Персонализация на основе ИИ: рост конверсии без потери доверия</h3>
+            <p>Как модули персонализации повышают продажи и почему важно сохранять прозрачность.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 40px; display: none;" id="noResults">
+        <p>В этой рубрике пока нет статей.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Хотите узнать больше?</h2>
+        <p>Задайте вопрос — расскажем о технологиях и подходах на языке бизнеса.</p>
+        <a href="contacts.html" class="btn btn-light">Задать вопрос</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:m.dedovich@inostudio.com">m.dedovich@inostudio.com</a></li>
+            <li><a href="tel:+79081892366">+7 (908) 189-23-66</a></li>
+            <li>Москва</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
