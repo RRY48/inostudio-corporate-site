@@ -278,14 +278,30 @@ p {
   background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F4 100%);
 }
 
+/* Фоновое видео в hero */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Оверлей для читаемости текста поверх видео */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(700px 300px at 85% 0%, rgba(22, 159, 219, 0.08), transparent 60%),
-    radial-gradient(600px 300px at 10% 90%, rgba(228, 0, 58, 0.06), transparent 60%);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 45%, rgba(247, 247, 244, 0.55) 100%),
+    radial-gradient(700px 300px at 85% 0%, rgba(22, 159, 219, 0.18), transparent 60%),
+    radial-gradient(600px 300px at 10% 90%, rgba(228, 0, 58, 0.12), transparent 60%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-grid {
@@ -294,6 +310,7 @@ p {
   gap: 60px;
   align-items: center;
   position: relative;
+  z-index: 2;
 }
 
 .hero-eyebrow {
