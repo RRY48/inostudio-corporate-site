@@ -28,7 +28,7 @@
   --shadow-hover: 0 16px 40px rgba(60, 60, 59, 0.14);
   --gradient-red: linear-gradient(135deg, #E4003A 0%, #C00030 100%);
   --gradient-blue: linear-gradient(135deg, #169FDB 0%, #0E7EB0 100%);
-  --container: 1200px;
+  --container: 1440px;
 }
 
 * {
@@ -308,12 +308,24 @@ p {
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 60px;
-  align-items: center;
+  display: flex;
+  justify-content: center;
   position: relative;
   z-index: 2;
+}
+
+.hero-content {
+  max-width: 860px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+}
+
+.hero-sub {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-eyebrow {
@@ -714,12 +726,16 @@ p {
 .direction-card h3 {
   font-size: 18px;
   margin-bottom: 12px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .direction-card p {
   font-size: 14px;
   flex-grow: 1;
   margin-bottom: 18px;
+  min-height: 66px;
 }
 
 .direction-tags {
@@ -1607,13 +1623,8 @@ p {
 /* ---------- Адаптив ---------- */
 @media (max-width: 1024px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 40px;
-  }
-
-  .hero-visual {
-    min-height: 380px;
-    max-width: 560px;
   }
 
   .directions-grid {
