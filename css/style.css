@@ -337,19 +337,25 @@ p {
   margin-bottom: 40px;
 }
 
-/* Блок логотипов клиентов */
-.hero-clients {
-  padding-top: 24px;
+/* Отдельная секция с логотипами клиентов (после hero) */
+.clients-section {
+  background: var(--bg-section);
   border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-.hero-clients p {
+.clients-section .clients-section-title {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--gray);
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Бегущая строка с логотипами */
