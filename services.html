@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Услуги — единый стек: разработка, дизайн, QA, Битрикс24 | Иностудио</title>
-  <meta name="description" content="Услуги Иностудио: веб-разработка (Laravel, Node.js, Python, React, Vue), пользовательский опыт и дизайн, тестирование, внедрение Битрикс24 и Битрикс CMS.">
+  <title>Услуги Иностудио: разработка, интеграции, аналитика, ИИ, HR-tech, Битрикс24</title>
+  <meta name="description" content="Услуги Иностудио для крупного бизнеса: веб-разработка и порталы, интеграции и API, UX и дизайн, тестирование, аналитика и BI, ИИ-решения, HR-tech, Битрикс24 и 1С-Битрикс, поддержка 24/7.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -42,55 +42,130 @@
       <div class="breadcrumbs">
         <a href="index.html">Главная</a> <span>/</span> <span>Услуги</span>
       </div>
-      <h1>Наша экспертиза — единый стек для любых задач</h1>
-      <p>Все компетенции собраны под одной крышей: от исследований и дизайна до разработки, тестирования и внедрения. Работаем как продуктовая команда, а не как исполнители.</p>
+      <h1>Широкая экспертиза — от разработки до ИИ и аналитики</h1>
+      <p>Мы сознательно не сводим услуги к четырём направлениям: чем шире профиль, тем точнее попадаем в вашу задачу и тем выше шанс закрыть нишу лида. Выберите релевантную категорию — покажем стек и результат.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 40px;">
     <div class="container">
-      <div class="section-header center reveal">
-        <div class="section-label">Технологии и стек</div>
-        <h2>Что мы делаем</h2>
+      <div class="services-toolbar">
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">Все услуги</button>
+          <button class="filter-btn" data-filter="dev">Веб-разработка и порталы</button>
+          <button class="filter-btn" data-filter="ux">UX-исследования и дизайн</button>
+          <button class="filter-btn" data-filter="qa">Тестирование и QA</button>
+          <button class="filter-btn" data-filter="int">Интеграции и API</button>
+          <button class="filter-btn" data-filter="bi">Аналитика и BI</button>
+          <button class="filter-btn" data-filter="ai">ИИ-решения</button>
+          <button class="filter-btn" data-filter="hr">HR-tech</button>
+          <button class="filter-btn" data-filter="bitrix">Битрикс24 и 1С-Битрикс</button>
+          <button class="filter-btn" data-filter="ops">Поддержка и DevOps</button>
+        </div>
       </div>
 
-      <div class="services-grid">
-        <div class="service-card reveal">
+      <div class="services-grid" id="servicesGrid">
+
+        <div class="service-card reveal" data-category="dev">
           <div class="icon">🌐</div>
-          <h3>Веб-разработка</h3>
-          <p>Сложные порталы, личные кабинеты, B2B-системы. Проектируем архитектуру под нагрузку и требования безопасности.</p>
+          <h3>Веб-разработка и порталы</h3>
+          <p>Сложные порталы, личные кабинеты и B2B-системы. Проектируем архитектуру под нагрузку и требования безопасности.</p>
           <div class="stack">Бэкенд: Laravel, Node.js, PHP, Python · Фронтенд: React, Vue</div>
+          <div class="service-tags"><span class="tag tag-blue">Разработка</span><span class="tag tag-blue">Порталы</span><span class="tag tag-blue">Личные кабинеты</span></div>
         </div>
-        <div class="service-card reveal">
+
+        <div class="service-card reveal" data-category="dev">
+          <div class="icon">🚚</div>
+          <h3>Миграции и модернизация легаси</h3>
+          <p>Переносим устаревшие системы на актуальный стек без остановки бизнеса: рефакторинг, выравнивание данных, поэтапный запуск.</p>
+          <div class="stack">Legacy → Laravel / Node.js / Python · Выравнивание данных</div>
+          <div class="service-tags"><span class="tag tag-blue">Модернизация</span><span class="tag tag-blue">Миграции</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="ux">
           <div class="icon">🎨</div>
-          <h3>Пользовательский опыт и дизайн</h3>
-          <p>Исследования, прототипирование, интерфейсы и дизайн-системы. Делаем продукты удобными и эффективными.</p>
-          <div class="stack">Исследования · Прототипы · Дизайн-системы</div>
+          <h3>UX-исследования и дизайн</h3>
+          <p>Юзабилити-аудит, исследования, прототипы и дизайн-системы. Делаем продукты удобными и измеримо эффективными.</p>
+          <div class="stack">Исследования · Прототипы · UI/UX · Дизайн-системы</div>
+          <div class="service-tags"><span class="tag tag-red">UX/UI</span><span class="tag tag-red">Дизайн-системы</span></div>
         </div>
-        <div class="service-card reveal">
+
+        <div class="service-card reveal" data-category="qa">
           <div class="icon">🧪</div>
           <h3>Тестирование и обеспечение качества</h3>
-          <p>Автоматизированное и ручное тестирование, нагрузочные испытания, контроль качества на всех этапах.</p>
+          <p>Функциональное и автоматизированное тестирование, нагрузочные испытания, контроль качества на всех этапах разработки.</p>
           <div class="stack">Автотесты · Нагрузочное тестирование · QA-процессы</div>
+          <div class="service-tags"><span class="tag tag-red">QA</span><span class="tag tag-red">Автотесты</span></div>
         </div>
-        <div class="service-card reveal">
+
+        <div class="service-card reveal" data-category="int">
+          <div class="icon">🔗</div>
+          <h3>Интеграции систем и API</h3>
+          <p>Связываем порталы и кабинеты с ERP, CRM, платёжными сервисами, складскими учётами и внешними API.</p>
+          <div class="stack">REST · SOAP · Вебхуки · Брокеры сообщений</div>
+          <div class="service-tags"><span class="tag tag-blue">Интеграции</span><span class="tag tag-blue">API</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="bi">
+          <div class="icon">📊</div>
+          <h3>BI-дашборды и витрины данных</h3>
+          <p>Панели руководителя: продажи, финансы и операции в реальном времени. Метрики вместо отчётов в Excel.</p>
+          <div class="stack">BI · ETL · Визуализация данных</div>
+          <div class="service-tags"><span class="tag tag-green">Аналитика</span><span class="tag tag-green">Дашборды</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="bi">
+          <div class="icon">🗄️</div>
+          <h3>Хранилища данных (DWH)</h3>
+          <p>Консолидируем данные из разрозненных систем в единый источник правды для аналитики и прогнозов.</p>
+          <div class="stack">PostgreSQL · ClickHouse · ETL-пайплайны</div>
+          <div class="service-tags"><span class="tag tag-green">DWH</span><span class="tag tag-green">ETL</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="ai">
+          <div class="icon">🤖</div>
+          <h3>ИИ-решения и интеллектуальные ассистенты</h3>
+          <p>Базы знаний с ИИ-агентами, модули персонализации и предиктивные модели. Автоматизация 24/7 с измеримым эффектом.</p>
+          <div class="stack">LLM · RAG · Базы знаний · ML</div>
+          <div class="service-tags"><span class="tag tag-red">ИИ</span><span class="tag tag-red">Ассистенты</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="hr">
+          <div class="icon">🧑‍💼</div>
+          <h3>HR-tech: карьерные сайты и TMS</h3>
+          <p>Карьерные порталы, системы управления талантами и атлас профессий для привлечения и развития сотрудников.</p>
+          <div class="stack">Карьерные сайты · TMS · Интеграции с ATS/HRM</div>
+          <div class="service-tags"><span class="tag tag-yellow">HR-tech</span><span class="tag tag-yellow">Найм</span></div>
+        </div>
+
+        <div class="service-card reveal" data-category="bitrix">
           <div class="icon">💼</div>
           <h3>Внедрение Битрикс24</h3>
           <p>Настройка портала, автоматизация бизнес-процессов, интеграция с внешними системами и обучение сотрудников.</p>
           <div class="stack">CRM · Бизнес-процессы · Интеграции</div>
+          <div class="service-tags"><span class="tag tag-blue">Битрикс24</span><span class="tag tag-blue">CRM</span></div>
         </div>
-        <div class="service-card reveal">
+
+        <div class="service-card reveal" data-category="bitrix">
           <div class="icon">🌟</div>
-          <h3>Битрикс CMS</h3>
-          <p>Разработка сайтов на 1С-Битрикс: управление сайтом, производительность, интеграции. Сертифицированный партнёр.</p>
+          <h3>Сайты на 1С-Битрикс</h3>
+          <p>Разработка и поддержка сайтов на «1С-Битрикс: Управление сайтом». Сертифицированный партнёр, CMS №1 в России.</p>
           <div class="stack">1С-Битрикс · Управление сайтом · Реестр Минцифры</div>
+          <div class="service-tags"><span class="tag tag-blue">1С-Битрикс</span><span class="tag tag-blue">CMS</span></div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon">🔗</div>
-          <h3>Интеграции систем</h3>
-          <p>Связываем сайты, порталы и кабинеты с ERP, CRM, платёжными сервисами, складскими учётами и внешними API.</p>
-          <div class="stack">REST · SOAP · Вебхуки · Брокеры сообщений</div>
+
+        <div class="service-card reveal" data-category="ops">
+          <div class="icon">🛡️</div>
+          <h3>Поддержка, DevOps и SLA 24/7</h3>
+          <p>CI/CD, мониторинг, информационная безопасность и круглосуточная поддержка. Держим доступность 99,6%.</p>
+          <div class="stack">CI/CD · Мониторинг · Инфраструктура · SLA</div>
+          <div class="service-tags"><span class="tag tag-green">DevOps</span><span class="tag tag-green">SLA 24/7</span></div>
         </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 40px; display: none;" id="noResults">
+        <p>В этой категории пока нет отдельной карточки. Расскажите о задаче — подберём экспертизу под вашу нишу.</p>
       </div>
     </div>
   </section>
@@ -132,7 +207,7 @@
         </div>
         <div class="model-card reveal">
           <div class="icon">⏱️</div>
-          <h4>Time & Material</h4>
+          <h4>Time &amp; Material</h4>
           <p>Команда под ваши задачи с почасовой оплатой.</p>
         </div>
         <div class="model-card reveal">
@@ -147,8 +222,8 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-box reveal">
-        <h2>Есть задача — есть решение</h2>
-        <p>Расскажите, что нужно построить, и мы предложим оптимальный формат работы.</p>
+        <h2>Не нашли свою нишу?</h2>
+        <p>Расскажите, что нужно построить, — подберём экспертизу под вашу задачу и предложим оптимальный формат работы.</p>
         <a href="contacts.html" class="btn btn-light">Обсудить задачу</a>
       </div>
     </div>

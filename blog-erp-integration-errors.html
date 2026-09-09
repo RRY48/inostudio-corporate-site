@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интеграция ERP и веб-портала: 5 ошибок из практики Razor — блог Иностудио</title>
+  <meta name="description" content="Практические ошибки при интеграции ERP и веб-портала из опыта Razor: идемпотентность, очереди, пиковые нагрузки, дубли и мониторинг. Чек-лист для вашего проекта.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html" class="active">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="article-back" href="blog.html">← Все статьи блога</a>
+      <div class="article-meta">
+        <span>B2B-порталы и ЛК</span><span class="dot">·</span><span>12.08.2026</span><span class="dot">·</span><span>7 мин чтения</span>
+      </div>
+      <h1>Интеграция ERP и веб-портала: 5 ошибок из практики Razor</h1>
+      <p class="article-lead">Когда портал и ERP обмениваются данными, кажется, что достаточно «отдать REST-методом справочник». На практике интеграция разваливается на пяти типовых граблях. Рассказываю, как мы их обходим в Razor.</p>
+      <div class="article-authors">
+        <div class="avatar ">Т</div>
+        <div>
+          <div class="article-author-name">Тимур</div>
+          <div class="article-author-role">Ведущий разработчик</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="article-body">
+
+<h2>Ошибка 1. Синхронизация без идемпотентности</h2>
+<p>Если операцию можно выполнить дважды и получить два разных результата — интеграция рано или поздно «задвоит» данные. В Razor все операции <strong>идемпотентны</strong>: повторная доставка того же сообщения не создаёт дубль. Ключ операции — часть бизнес-документа (номер заказа, ИНН), а не «случайный id из БД отправителя».</p>
+<h2>Ошибка 2. Интеграция «точка-в-точку» вместо шины</h2>
+<p>Десять систем по схеме «каждая с каждой» — это 45 интеграций, которые невозможно поддерживать. Мы используем <strong>брокер сообщений</strong>: системы не знают друг о друге, а обмениваются событиями через шину. Добавить новую систему — значит подключить её к шине, а не переписывать всех соседей.</p>
+<h2>Ошибка 3. Нет обработки пиковых нагрузок</h2>
+<p>Разовые выгрузки на 500 000 строк в час пик «ложат» и ERP, и портал. Решение — <strong>очереди, батчи и backpressure</strong>: портал отдаёт данные частями, ERP принимает в своём темпе, а не «всё сразу».</p>
+<h2>Ошибка 4. Нет мониторинга и «мёртвых очередей»</h2>
+<p>Интеграция работает «вроде бы», пока однажды не выясняется, что сообщения три дня падают в ошибку и никто не заметил. С первого дня мы настраиваем <strong>мониторинг очередей, метрики задержек и алерты</strong>, а «упавшие» сообщения уходят в отдельную очередь для разбора — ничего не теряется.</p>
+<h2>Ошибка 5. Забыли про обратную синхронизацию и статусы</h2>
+<p>Портал отдал заказ в ERP — а дальше? Клиент должен видеть статусы: «принят», «в работе», «отгружен». Обратная синхронизация статусов — половина ценности личного кабинета. Если она не спроектирована, портал превращается в «чёрную дыру», куда данные уходят и не возвращаются.</p>
+<h2>Чек-лист перед интеграцией</h2>
+<ul>
+  <li>Определите <strong>владельца данных</strong> по каждой сущности: кто источник правды.</li>
+  <li>Спроектируйте <strong>схему обмена событиями</strong>, а не «вызовы методов по расписанию».</li>
+  <li>Заложите <strong>идемпотентность и ретраи</strong> с экспоненциальной задержкой.</li>
+  <li>Согласуйте <strong>SLA на интеграцию</strong>: сколько данных и за какое время должно доезжать.</li>
+  <li>Настройте <strong>метрики и алерты</strong> до запуска, а не после первого инцидента.</li>
+  <li>Прогоните <strong>пиковый сценарий</strong> на нагрузочном стенде.</li>
+</ul>
+<blockquote>Хорошая интеграция незаметна: данные едут, статусы обновляются, никто не дёргает разработчиков. Плохая — это вечные «а почему у меня в кабинете не обновился статус?».</blockquote>
+<h2>В итоге</h2>
+<p>Интеграция ERP и портала — это отдельный продукт со своей архитектурой, а не «побочная задача разработки». Пять правил выше экономят месяцы поддержки — проверено на Razor.</p>
+
+        <div class="article-tags">
+
+        <span class="tag tag-blue">#интеграции</span><span class="tag tag-blue">#erp</span><span class="tag tag-blue">#порталы</span><span class="tag tag-red">#razor</span>
+
+        </div>
+        <div class="article-share">Поделиться статьёй — отправить коллеге или сохранить в заметки.</div>
+      </div>
+
+      <div class="article-footer-card">
+        <div class="avatar ">Т</div>
+        <div class="text">
+          <div class="article-author-name">Тимур</div>
+          <div class="article-author-role">Ведущий разработчик</div>
+          <p>Пишем о том, с чем работаем каждый день. Если хотите обсудить тему глубже — напишите нам.</p>
+        </div>
+        <a href="contacts.html" class="btn btn-primary">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Планируете интеграцию портала с ERP?</h2>
+        <p>Спроектируем схему обмена, оценим нагрузки и заложим мониторинг — чтобы интеграция была незаметной и надёжной.</p>
+        <a href="contacts.html" class="btn btn-light">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:welcome@inostudio.com">welcome@inostudio.com</a></li>
+            <li><a href="tel:+74956404500">+7 (495) 640-45-00</a></li>
+            <li>Таганрог, ул. Октябрьская, 39</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

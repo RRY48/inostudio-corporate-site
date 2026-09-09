@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elasticsearch в Razor: как ускорить поиск по десяткам миллионов документов — блог Иностудио</title>
+  <meta name="description" content="Опыт Иностудио: почему LIKE-запросы перестали справляться в высоконагруженной ERP Razor, как устроен Elasticsearch и какие лайфхаки мы применяем на практике.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html" class="active">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="article-back" href="blog.html">← Все статьи блога</a>
+      <div class="article-meta">
+        <span>Разработка и инженерия</span><span class="dot">·</span><span>18.08.2026</span><span class="dot">·</span><span>11 мин чтения</span>
+      </div>
+      <h1>Elasticsearch в высоконагруженной ERP: как мы ускорили поиск в Razor</h1>
+      <p class="article-lead">В Razor — высоконагруженной ERP, которую мы развиваем как партнёры, — справочники и журналы операций выросли до десятков миллионов записей. Поиск по ним стал узким местом. Рассказываю, как мы перешли на Elasticsearch, что учли и какие грабли обошли.</p>
+      <div class="article-authors">
+        <div class="avatar ">В</div>
+        <div>
+          <div class="article-author-name">Вдовин</div>
+          <div class="article-author-role">Архитектор продукта Razor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="article-body">
+
+<p>Любая большая учётная система начинается с простого запроса: «найти контрагента по названию», «найти документ по номеру», «найти товар по артикулу». Пока данных тысячи — справляется <strong>LIKE-запрос</strong> в реляционной базе. Проблемы начинаются, когда записей становится миллионы, а пользователи ожидают ответ «как в поисковике»: с учётом опечаток, морфологии и мгновенной выдачи.</p>
+<p>В Razor мы пришли к этому постепенно: справочники выросли, появились журналы операций, поиск по документам и вложениям. Настал момент, когда <strong>LIKE по нескольким таблицам с JOIN</strong> стал съедать ресурсы основной БД и тормозить бизнес-процессы. Поиск перестал быть второстепенной функцией — он стал частью продукта.</p>
+<h2>Почему не хватило обычной СУБД</h2>
+<p>Мы не стали сразу менять базу. Сначала честно оценили альтернативы «из коробки»:</p>
+<ul>
+  <li><strong>PostgreSQL</strong> — есть полнотекстовый поиск и JSON. Он отлично работает на небольших объёмах, но морфология русского языка, опечатки и ранжирование требуют доработок, а нагрузка ложится на основную БД.</li>
+  <li><strong>MongoDB</strong> — удобна для хранения документов, но текстовый поиск там ограничен, а сложные фасеты и агрегации приходится собирать в коде.</li>
+  <li><strong>Elasticsearch</strong> — отдельный кластер, который берёт на себя поиск и не трогает боевую БД: индексы, морфология, опечатки (fuzzy), агрегации и фасеты из коробки.</li>
+</ul>
+<p>Мы выбрали Elasticsearch и ни разу не пожалели. Но важно понимать: это <strong>не замена СУБД, а поисковый слой</strong> рядом с ней.</p>
+<h2>Как устроен Elasticsearch</h2>
+<p>Коротко и без магии. Elasticsearch хранит документы в формате JSON и строит для них <strong>инвертированный индекс</strong>: для каждого слова — список документов, где оно встречается. Поэтому поиск по слову — это не сканирование таблицы, а быстрый проход по индексу. Документы распределяются по <strong>шардам</strong>, каждый шард может иметь <strong>реплики</strong> — так решается и горизонтальное масштабирование, и отказоустойчивость.</p>
+<p>В Razor прикладная БД остаётся источником правды, а в Elasticsearch мы <strong>синхронизируем поисковые срезы</strong> справочников и документов.</p>
+<h2>Что мы сделали в Razor</h2>
+<ul>
+  <li>Вынесли поиск по контрагентам, товарам, документам и журналам операций в отдельные <strong>индексы</strong> с продуманными маппингами.</li>
+  <li>Настроили <strong>алиасы (aliases)</strong>: реиндексация идёт на новый индекс в фоне, а переключение занимает миллисекунды.</li>
+  <li>Используем <strong>fuzzy-поиск</strong> и синонимы: система находит контрагента, даже если пользователь ошибся в названии.</li>
+  <li>Фасетные фильтры сделали через <strong>агрегации + post_filter</strong>: пользователь видит доступные варианты, а не пустые списки.</li>
+  <li>Релевантность настраиваем под бизнес-логику: точное совпадение по ИНН всегда выше названия.</li>
+</ul>
+<h2>Плюсы и минусы Elasticsearch</h2>
+<ul>
+  <li>✅ Скорость полнотекстового поиска на больших объёмах.</li>
+  <li>✅ Морфология, опечатки, синонимы «из коробки».</li>
+  <li>✅ Агрегации для фасетов и аналитики.</li>
+  <li>✅ Горизонтальное масштабирование.</li>
+</ul>
+<ul>
+  <li>⚠️ Это отдельная инфраструктура: кластер нужно мониторить и обслуживать.</li>
+  <li>⚠️ Данные не заменяют транзакционную БД — нужна синхронизация.</li>
+  <li>⚠️ Без продуманного маппинга легко «индексировать лишнее» и раздуть кластер.</li>
+</ul>
+<h2>Лайфхаки из практики</h2>
+<ul>
+  <li><strong>Не индексируйте то, что не ищете.</strong> Поля-справочники отключайте через <code>"index": false</code> — экономит память.</li>
+  <li><strong>Меняйте индексы через алиасы</strong>, а не «на горячую». Реиндексация перестаёт быть страшной операцией.</li>
+  <li><strong>Следите за JVM-кучей</strong> и настраивайте refresh interval под нагрузку записи.</li>
+  <li><strong>Начинайте с малого</strong>: один индекс, 2–3 поля поиска, потом расширяйте по метрикам.</li>
+</ul>
+<pre><code>{ "query": { "multi_match": {
+  "query": "поставщик краснодар",
+  "fields": ["name^3", "inn", "address"],
+  "fuzziness": "AUTO"
+} } }</code></pre>
+<h2>В итоге</h2>
+<p>В Razor поиск по справочникам перестал быть узким местом: ответ приходит за десятки миллисекунд, а нагрузка ушла с боевой БД. Главный урок — <strong>поиск это не запрос, а отдельный слой продукта</strong>, который проектируется осознанно: маппинги, синхронизация, мониторинг.</p>
+<blockquote>Если в вашей системе «тормозит поиск» — не спешите покупать железо. Сначала посчитайте объёмы и посмотрите на паттерны запросов. В 80% случаев отдельный поисковый движок окупается уже на пилоте.</blockquote>
+
+        <div class="article-tags">
+
+        <span class="tag tag-blue">#elasticsearch</span><span class="tag tag-blue">#поиск</span><span class="tag tag-blue">#razor</span><span class="tag tag-red">#backend</span>
+
+        </div>
+        <div class="article-share">Поделиться статьёй — отправить коллеге или сохранить в заметки.</div>
+      </div>
+
+      <div class="article-footer-card">
+        <div class="avatar ">В</div>
+        <div class="text">
+          <div class="article-author-name">Вдовин</div>
+          <div class="article-author-role">Архитектор продукта Razor</div>
+          <p>Пишем о том, с чем работаем каждый день. Если хотите обсудить тему глубже — напишите нам.</p>
+        </div>
+        <a href="contacts.html" class="btn btn-primary">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Нужен быстрый поиск в вашей системе?</h2>
+        <p>Проведём аудит поиска, посчитаем объёмы и предложим архитектуру — от PostgreSQL full-text до Elasticsearch-кластера.</p>
+        <a href="contacts.html" class="btn btn-light">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:welcome@inostudio.com">welcome@inostudio.com</a></li>
+            <li><a href="tel:+74956404500">+7 (495) 640-45-00</a></li>
+            <li>Таганрог, ул. Октябрьская, 39</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

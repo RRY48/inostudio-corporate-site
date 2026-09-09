@@ -38,11 +38,13 @@ function initFilters() {
   var filterBar = document.getElementById('filterBar');
   if (!filterBar) return;
 
-  var grid = document.getElementById('casesGrid') || document.getElementById('blogGrid');
+  var grid = document.getElementById('casesGrid') || document.getElementById('blogGrid') || document.getElementById('servicesGrid');
   if (!grid) return;
 
   var noResults = document.getElementById('noResults');
   var buttons = filterBar.querySelectorAll('.filter-btn');
+  var emptyMessage = 'В этой категории пока нет материалов. Обратитесь к нам — покажем похожие проекты.';
+  if (document.getElementById('servicesGrid')) emptyMessage = 'В этой категории пока нет карточки. Расскажите о задаче — подберём экспертизу.';
 
   buttons.forEach(function (btn) {
     btn.addEventListener('click', function () {
@@ -52,7 +54,7 @@ function initFilters() {
       var filter = btn.getAttribute('data-filter');
       var visibleCount = 0;
 
-      grid.querySelectorAll('.case-card, .blog-card').forEach(function (card) {
+      grid.querySelectorAll('.case-card, .blog-card, .service-card').forEach(function (card) {
         var categories = (card.getAttribute('data-category') || '').split(' ');
 
         if (filter === 'all' || categories.indexOf(filter) !== -1) {
@@ -64,7 +66,12 @@ function initFilters() {
       });
 
       if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+          noResults.innerHTML = '<p>' + emptyMessage + '</p>';
+        } else {
+          noResults.style.display = 'none';
+        }
       }
     });
   });

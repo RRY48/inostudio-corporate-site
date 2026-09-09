@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>База знаний с ИИ-агентом: как посчитать эффект до старта — блог Иностудио</title>
+  <meta name="description" content="Практический подход к ИИ-ассистентам на базе знаний: как оценить процент закрываемых вопросов, качество ответов и окупаемость до начала разработки. Опыт Иностудио.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html" class="active">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="article-back" href="blog.html">← Все статьи блога</a>
+      <div class="article-meta">
+        <span>ИИ-решения</span><span class="dot">·</span><span>09.09.2026</span><span class="dot">·</span><span>12 мин чтения</span>
+      </div>
+      <h1>База знаний с ИИ-агентом: как посчитать эффект до старта</h1>
+      <p class="article-lead">«Поставим ИИ — и поддержка сама ответит» — так начинается большинство запросов. Мы отвечаем: «Давайте сначала посчитаем». Рассказываю, как оценить эффект ИИ-ассистента на базе знаний до того, как потрачен первый бюджет.</p>
+      <div class="article-authors">
+        <div class="avatar avatar-yellow">Т</div>
+        <div>
+          <div class="article-author-name">Тимур</div>
+          <div class="article-author-role">Ведущий разработчик</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="article-body">
+
+<p>ИИ-ассистент на базе знаний компании (RAG-подход) — одна из самых быстрых по внедрению ИИ-задач: модель отвечает строго на ваших документах, а не «фантазирует из интернета». Но эффект сильно зависит от того, <strong>что за вопросы вам задают</strong> и насколько хороша ваша база знаний.</p>
+<h2>Считаем от обратного</h2>
+<p>Мы всегда начинаем с простой арифметики:</p>
+<ul>
+  <li>сколько обращений в поддержку приходит в месяц;</li>
+  <li>какая доля — <strong>типовые вопросы</strong> (их можно закрыть статьёй);</li>
+  <li>сколько стоит одно обращение (время оператора, эскалации);</li>
+  <li>сколько из типовых вопросов уже покрыто базой знаний.</li>
+</ul>
+<p>Пример: 10 000 обращений в месяц, 60% типовых, средняя стоимость — 150 ₽. Если ассистент закрывает половину типовых — экономия около <strong>450 000 ₽ в месяц</strong>. Уже можно считать бюджет пилота.</p>
+<h2>Качество ответов: метрики, а не ощущения</h2>
+<p>На пилоте мы измеряем не «нравится ли ответ», а:</p>
+<ul>
+  <li><strong>долю решённых диалогов</strong> (пользователь не перешёл к оператору);</li>
+  <li><strong>точность ответов</strong> на тестовом наборе из 200–300 реальных вопросов;</li>
+  <li><strong>оценку эскалаций</strong>: корректно ли ассистент передаёт сложный вопрос человеку;</li>
+  <li><strong>покрытие</strong>: на какой процент вопросов в базе есть ответ.</li>
+</ul>
+<h2>Что входит в пилот</h2>
+<ul>
+  <li><strong>Аудит базы знаний</strong>: какие документы есть, насколько они актуальны и структурированы.</li>
+  <li><strong>Подготовка данных</strong>: чистка, разметка и нарезка документов на фрагменты (чанкинг).</li>
+  <li><strong>Контур RAG</strong>: векторный поиск по базе + генерация ответа с указанием источника.</li>
+  <li><strong>Правила эскалации</strong>: нет уверенного ответа — ассистент честно передаёт диалог оператору.</li>
+  <li><strong>Журнал диалогов и оценок</strong>: аналитик видит, где ассистент ошибается, и улучшает базу.</li>
+</ul>
+<h2>Где RAG ошибается (и как мы это ловим)</h2>
+<ul>
+  <li><strong>Похожие документы</strong>: два похожих регламента — модель может ответить по неактуальному. Решает версия документа и точный поиск.</li>
+  <li><strong>Устаревшая база</strong>: ответ будет уверенным и неверным. Поэтому важна регулярная актуализация и даты в источниках.</li>
+  <li><strong>Вопрос «вне базы»</strong>: ассистент должен сказать «не знаю» и передать человеку, а не додумать.</li>
+  <li><strong>Многошаговые вопросы</strong>: «что будет, если я продлю лицензию после окончания» — такие сценарии проверяются отдельно.</li>
+</ul>
+<blockquote>Главное правило наших пилотов: <strong>лучше не ответить, чем ответить неверно</strong>. Эскалация оператору стоит копейки, потерянное доверие клиента — дорого.</blockquote>
+<h2>В итоге</h2>
+<p>ИИ-ассистент на базе знаний окупается, когда у вас есть <strong>поток типовых вопросов и живая база знаний</strong>. Пилот за 6–8 недель даёт цифры: процент закрытых диалогов, точность ответов и план по доработке базы. Дальше решение принимается на данных, а не на обещаниях.</p>
+
+        <div class="article-tags">
+
+        <span class="tag tag-red">#ии</span><span class="tag tag-red">#rag</span><span class="tag tag-red">#база-знаний</span><span class="tag tag-red">#ассистенты</span>
+
+        </div>
+        <div class="article-share">Поделиться статьёй — отправить коллеге или сохранить в заметки.</div>
+      </div>
+
+      <div class="article-footer-card">
+        <div class="avatar avatar-yellow">Т</div>
+        <div class="text">
+          <div class="article-author-name">Тимур</div>
+          <div class="article-author-role">Ведущий разработчик</div>
+          <p>Пишем о том, с чем работаем каждый день. Если хотите обсудить тему глубже — напишите нам.</p>
+        </div>
+        <a href="contacts.html" class="btn btn-primary">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Хотите посчитать эффект ИИ-ассистента?</h2>
+        <p>Проведём аудит обращений и базы знаний, посчитаем потенциальную экономию и предложим формат пилота.</p>
+        <a href="contacts.html" class="btn btn-light">Рассчитать эффект</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:welcome@inostudio.com">welcome@inostudio.com</a></li>
+            <li><a href="tel:+74956404500">+7 (495) 640-45-00</a></li>
+            <li>Таганрог, ул. Октябрьская, 39</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

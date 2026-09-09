@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Блог — Иностудио: B2B, HR-tech, ИИ, аналитика и BI</title>
-  <meta name="description" content="Блог Иностудио: статьи о B2B-порталах, личных кабинетах, HR-tech решениях, ИИ-решениях, аналитике данных и BI.">
+  <title>Блог Иностудио — статьи об опыте: поиск, безопасность, аналитика, ИИ</title>
+  <meta name="description" content="Блог Иностудио: практические статьи наших специалистов — Elasticsearch и большие данные, безопасность веб-систем, BI-дашборды, ИИ-ассистенты, HR-tech.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -43,7 +43,7 @@
         <a href="index.html">Главная</a> <span>/</span> <span>Блог</span>
       </div>
       <h1>Блог о технологиях и бизнесе</h1>
-      <p>Практический опыт: B2B-порталы, HR-tech, ИИ-решения, аналитика и BI. Без воды — только то, что работает.</p>
+      <p>Пишут те, кто делает проекты: инженеры, аналитики и архитекторы Иностудио. Опыт Razor, Р7, МТС Финтех, Альфа-Банка — без воды, с метриками и лайфхаками.</p>
     </div>
   </section>
 
@@ -51,90 +51,80 @@
     <div class="container">
       <div class="filter-bar" id="filterBar">
         <button class="filter-btn active" data-filter="all">Все статьи</button>
+        <button class="filter-btn" data-filter="dev">Разработка и инженерия</button>
         <button class="filter-btn" data-filter="b2b">B2B-порталы и ЛК</button>
         <button class="filter-btn" data-filter="hr">HR-tech</button>
         <button class="filter-btn" data-filter="ai">ИИ-решения</button>
         <button class="filter-btn" data-filter="bi">Аналитика и BI</button>
+        <button class="filter-btn" data-filter="sec">Безопасность</button>
       </div>
 
       <div class="blog-grid" id="blogGrid">
 
-        <div class="blog-card reveal" data-category="ai">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(106,76,255,0.08));">🤖</div>
+        <div class="blog-card reveal" data-category="dev">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.10), rgba(60,60,59,0.10));">🔎</div>
           <div class="blog-body">
-            <div class="blog-meta">ИИ-решения · 12 мин</div>
-            <h3>Как внедрить базу знаний с ИИ-агентом: пошаговый план</h3>
-            <p>Что нужно, чтобы ИИ-ассистент отвечал на 80% вопросов поддержки. Реальные этапы внедрения.</p>
+            <div class="blog-meta">Разработка и инженерия · 18.08.2026 · 11 мин</div>
+            <h3><a href="blog-elasticsearch-razor.html">Elasticsearch в Razor: как ускорить поиск по десяткам миллионов документов</a></h3>
+            <p>Почему LIKE-запросы перестали справляться, как устроен Elasticsearch и какие лайфхаки мы используем в высоконагруженной ERP.</p>
+            <div class="blog-author">Автор: <strong>Вдовин</strong>, архитектор Razor</div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="sec">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(22,159,219,0.08));">🛡️</div>
+          <div class="blog-body">
+            <div class="blog-meta">Безопасность · 02.09.2026 · 9 мин</div>
+            <h3><a href="blog-security-checklist.html">Безопасность веб-систем для крупного бизнеса: чек-лист перед релизом</a></h3>
+            <p>Что мы проверяем до запуска: аутентификация, API, защита данных, OWASP Top 10 и пентесты. Практика корпоративных проектов.</p>
+            <div class="blog-author">Автор: <strong>Олег</strong>, инженер по безопасности</div>
           </div>
         </div>
 
         <div class="blog-card reveal" data-category="bi">
           <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(0,169,132,0.08), rgba(56,189,248,0.08));">📊</div>
           <div class="blog-body">
-            <div class="blog-meta">Аналитика и BI · 8 мин</div>
-            <h3>BI-дашборд для руководителя: 5 метрик, которые важны</h3>
-            <p>Какие показатели должны быть на дашборде первого экрана, чтобы решения принимались быстро.</p>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="b2b">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.08), rgba(0,169,132,0.08));">💼</div>
-          <div class="blog-body">
-            <div class="blog-meta">B2B-порталы · 10 мин</div>
-            <h3>Личный кабинет клиента: с чего начать и что учесть</h3>
-            <p>Проектируем личный кабинет: роли, сценарии, интеграции с учётными системами.</p>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="hr">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(251,187,33,0.12), rgba(228,0,58,0.06));">🧑‍💼</div>
-          <div class="blog-body">
-            <div class="blog-meta">HR-tech · 9 мин</div>
-            <h3>Карьерный сайт, который привлекает сильных кандидатов</h3>
-            <p>Как устроен эффективный карьерный портал: воронка, контент, аналитика найма.</p>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="bi">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(0,169,132,0.08), rgba(14,165,233,0.08));">🔮</div>
-          <div class="blog-body">
-            <div class="blog-meta">Аналитика и BI · 9 мин</div>
-            <h3>Прогноз спроса, оттока и остатков: как модели помогают бизнесу</h3>
-            <p>Где предиктивная аналитика окупается быстрее всего и как оценить точность моделей.</p>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="b2b">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.08), rgba(228,0,58,0.06));">🔗</div>
-          <div class="blog-body">
-            <div class="blog-meta">B2B-порталы · 6 мин</div>
-            <h3>Интеграция ERP и веб-портала: типовые ошибки</h3>
-            <p>Как избежать проблем при интеграции портала с учётной системой. Практический чек-лист.</p>
-          </div>
-        </div>
-
-        <div class="blog-card reveal" data-category="hr">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(251,187,33,0.12), rgba(0,169,132,0.06));">🗺️</div>
-          <div class="blog-body">
-            <div class="blog-meta">HR-tech · 7 мин</div>
-            <h3>Атлас профессий: как помочь сотрудникам расти</h3>
-            <p>Интерактивная карта профессий и компетенций для навигации по карьерным трекам.</p>
+            <div class="blog-meta">Аналитика и BI · 26.08.2026 · 10 мин</div>
+            <h3><a href="blog-dashboards-razor.html">Дашборды для руководителя: как мы строили аналитику Razor</a></h3>
+            <p>От разрозненных Excel-отчётов к единой панели: какие метрики выносить на первый экран и как не утонуть в данных.</p>
+            <div class="blog-author">Автор: <strong>Вероника</strong>, аналитик данных</div>
           </div>
         </div>
 
         <div class="blog-card reveal" data-category="ai">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(22,159,219,0.06));">🎯</div>
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(228,0,58,0.08), rgba(106,76,255,0.08));">🤖</div>
           <div class="blog-body">
-            <div class="blog-meta">ИИ-решения · 7 мин</div>
-            <h3>Персонализация на основе ИИ: рост конверсии без потери доверия</h3>
-            <p>Как модули персонализации повышают продажи и почему важно сохранять прозрачность.</p>
+            <div class="blog-meta">ИИ-решения · 09.09.2026 · 12 мин</div>
+            <h3><a href="blog-ai-knowledge-base.html">База знаний с ИИ-агентом: как посчитать эффект до старта</a></h3>
+            <p>До пилота: какой процент вопросов реально закрывает ассистент, как оценить качество ответов и не разочароваться в RAG.</p>
+            <div class="blog-author">Автор: <strong>Тимур</strong>, ведущий разработчик</div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="b2b">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(22,159,219,0.08), rgba(0,169,132,0.08));">🔗</div>
+          <div class="blog-body">
+            <div class="blog-meta">B2B-порталы и ЛК · 12.08.2026 · 7 мин</div>
+            <h3><a href="blog-erp-integration-errors.html">Интеграция ERP и веб-портала: 5 ошибок из практики Razor</a></h3>
+            <p>Идемпотентность, очереди, пиковые нагрузки и дубли контрагентов: чек-лист, который сэкономит вам месяцы интеграции.</p>
+            <div class="blog-author">Автор: <strong>Тимур</strong>, ведущий разработчик</div>
+          </div>
+        </div>
+
+        <div class="blog-card reveal" data-category="hr">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, rgba(251,187,33,0.12), rgba(0,169,132,0.06));">🧑‍💼</div>
+          <div class="blog-body">
+            <div class="blog-meta">HR-tech · 20.08.2026 · 8 мин</div>
+            <h3><a href="blog-hr-career.html">Карьерный сайт крупного бизнеса: что дают годы развития портала Альфа-Банка</a></h3>
+            <p>Карьерный сайт как продукт: воронка кандидата, интеграции с ATS, аналитика найма и развитие на основе данных.</p>
+            <div class="blog-author">Автор: <strong>Вероника</strong>, аналитик данных</div>
           </div>
         </div>
 
       </div>
 
       <div style="text-align: center; margin-top: 40px; display: none;" id="noResults">
-        <p>В этой рубрике пока нет статей.</p>
+        <p>В этой рубрике пока нет статей. Напишите нам — расскажем об опыте в вашей теме.</p>
       </div>
     </div>
   </section>
@@ -142,8 +132,8 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-box reveal">
-        <h2>Хотите узнать больше?</h2>
-        <p>Задайте вопрос — расскажем о технологиях и подходах на языке бизнеса.</p>
+        <h2>Хотите узнать, как это работает у вас?</h2>
+        <p>Задайте вопрос нашим инженерам — расскажем о технологиях и подходах на языке вашего бизнеса.</p>
         <a href="contacts.html" class="btn btn-light">Задать вопрос</a>
       </div>
     </div>

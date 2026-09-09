@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razor: высоконагруженная ERP — кейс Иностудио</title>
+  <meta name="description" content="Кейс Razor: высоконагруженная ERP для крупного бизнеса — поиск по десяткам миллионов документов, отчётность в реальном времени, интеграции и доступность 99,6%.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html" class="active">Кейсы</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html">Главная</a> <span>/</span> <a href="projects.html">Кейсы</a> <span>/</span> <span>Razor</span>
+      </div>
+      <div class="solution-title">
+        <div class="solution-icon" style="background: rgba(60,60,59,0.1);">⚙️</div>
+        <h1>Razor: высоконагруженная ERP — отчётность и поиск в реальном времени</h1>
+      </div>
+      <p>Razor — ERP-система, на которой работает бизнес крупного заказчика: закупки, продажи, склад, финансы и кадры. Иностудио — партнёр по развитию продукта: архитектура под нагрузку, поиск по большим данным, интеграции и круглосуточная поддержка.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 24px;">
+    <div class="container">
+      <div class="case-hero-metrics">
+        <div class="case-metric reveal">
+          <div class="metric-value">40+ млн</div>
+          <div class="metric-label">документов в поисковых индексах системы</div>
+        </div>
+        <div class="case-metric reveal">
+          <div class="metric-value">&lt;100 мс</div>
+          <div class="metric-label">среднее время поиска по справочникам</div>
+        </div>
+        <div class="case-metric reveal">
+          <div class="metric-value">99,6%</div>
+          <div class="metric-label">доступность сервисов под SLA</div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h2><span class="icon">🎯</span> Задача</h2>
+        <ul>
+          <li>Бизнес-процессы компании разнесены по разрозненным системам: данные дублируются, отчёты собираются вручную.</li>
+          <li>Поиск по справочникам и документам работал через <strong>LIKE-запросы</strong>: при росте данных ответ занимал секунды, а сложные выборки — минуты.</li>
+          <li>Требовалась архитектура, способная выдержать <strong>пиковые нагрузки</strong> (закрытие периода, массовые операции) без деградации.</li>
+          <li>Нужна отчётность «здесь и сейчас»: руководители ждали цифры днями.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h2><span class="icon">🛠️</span> Решение</h2>
+        <ul>
+          <li>Спроектировали <strong>модульную архитектуру</strong>: монолитное ядро разбили на сервисы с чёткими границами и API.</li>
+          <li>Развернули <strong>Elasticsearch-кластер</strong> для полнотекстового поиска по справочникам, документам и журналам операций — с переключением индексов через aliases без простоев.</li>
+          <li>Построили <strong>витрины данных</strong> и ETL-пайплайны: отчётность переехала с Excel в BI-дашборды и выгрузки в реальном времени.</li>
+          <li>Интеграции перевели на <strong>брокер сообщений и идемпотентные операции</strong>: синхронизация не теряет данные даже при сбоях.</li>
+          <li>Внедрили <strong>CI/CD, нагрузочное тестирование и мониторинг</strong>: релизы стали частыми и предсказуемыми.</li>
+        </ul>
+      </div>
+
+      <div class="case-block">
+        <h2><span class="icon">📈</span> Результат</h2>
+        <ul>
+          <li>Поиск по справочникам ускорился <strong>с секунд до десятков миллисекунд</strong>; нагрузка на основную БД снизилась.</li>
+          <li>Отчётность готовится <strong>в реальном времени</strong> — без ручной сборки и ожидания закрытия периода.</li>
+          <li>Система стабильно работает под <strong>пиковыми нагрузками</strong>; доступность держится на уровне 99,6%.</li>
+          <li>Интеграции не теряют данные и <strong>самовосстанавливаются</strong> после сбоев внешних систем.</li>
+          <li>Команда перешла на <strong>короткие итерации</strong>: новые возможности бизнес получает каждые две недели.</li>
+        </ul>
+      </div>
+
+      <div class="case-tech reveal">
+        <strong>Технологии:</strong> PHP / Laravel, Node.js, Python, React, Vue · Elasticsearch · PostgreSQL · ClickHouse · RabbitMQ / Kafka · Docker, Kubernetes, CI/CD · Grafana, Prometheus
+      </div>
+      <div class="case-meta-row reveal">
+        <span class="tag tag-blue">B2B / ERP</span>
+        <span class="tag tag-blue">Высокая нагрузка</span>
+        <span class="tag tag-blue">Поиск</span>
+        <span class="tag tag-green">Аналитика и отчётность</span>
+      </div>
+      <p class="case-note">Подробнее о поиске в Razor — в статье «<a href="blog-elasticsearch-razor.html">Elasticsearch в Razor</a>».</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Нужна надёжная система под нагрузкой?</h2>
+        <p>Расскажите о задаче — спроектируем архитектуру, оценим нагрузку и предложим план развития.</p>
+        <a href="contacts.html" class="btn btn-light">Обсудить проект</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:welcome@inostudio.com">welcome@inostudio.com</a></li>
+            <li><a href="tel:+74956404500">+7 (495) 640-45-00</a></li>
+            <li>Таганрог, ул. Октябрьская, 39</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

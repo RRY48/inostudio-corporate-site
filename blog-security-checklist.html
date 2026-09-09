@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Безопасность веб-систем для крупного бизнеса: чек-лист перед релизом — блог Иностудио</title>
+  <meta name="description" content="Практический чек-лист безопасности веб-систем для корпоративных заказчиков: аутентификация, API, защита данных, OWASP Top 10, WAF и пентесты. Опыт Иностудио.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23E4003A'/><text x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white'>И</text></svg>">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">И</span>
+        <span>Иностудио</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="projects.html">Кейсы</a></li>
+          <li><a href="blog.html" class="active">Блог</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="contacts.html" class="btn btn-primary">Обсудить проект</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <a class="article-back" href="blog.html">← Все статьи блога</a>
+      <div class="article-meta">
+        <span>Безопасность</span><span class="dot">·</span><span>02.09.2026</span><span class="dot">·</span><span>9 мин чтения</span>
+      </div>
+      <h1>Безопасность веб-систем для крупного бизнеса: чек-лист перед релизом</h1>
+      <p class="article-lead">Когда заказчик — банк, вендор ПО или промышленный холдинг, «потом закроем дыры» не работает. Рассказываю, что мы проверяем перед каждым релизом корпоративных систем и почему безопасность — это процесс, а не финальный пентест.</p>
+      <div class="article-authors">
+        <div class="avatar avatar-blue">О</div>
+        <div>
+          <div class="article-author-name">Олег</div>
+          <div class="article-author-role">Инженер по безопасности</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="article-body">
+
+<p>У корпоративного продукта другая цена ошибки, чем у стартапа: утечка данных клиентов, штрафы регулятора и потеря доверия стоят дороже любого фиче-релиза. Поэтому безопасность в наших проектах встроена в процесс с первого спринта, а не добавляется «в конце».</p>
+<p>Ниже — чек-лист, который мы прогоняем перед выкаткой систем для крупных заказчиков. Он не заменяет полноценный аудит, но закрывает 90% типовых дыр.</p>
+<h2>Аутентификация и доступы</h2>
+<ul>
+  <li>Пароли не храним в открытом виде: только <strong>хэши с солью</strong> (bcrypt/argon2).</li>
+  <li>Обязательная <strong>двухфакторная аутентификация</strong> для администраторов и привилегированных ролей.</li>
+  <li>Сессии и токены: короткий срок жизни, ротация, отзыв при подозрительной активности.</li>
+  <li>Доступ по <strong>принципу минимальных привилегий</strong>: права проверяются на сервере, а не прячутся в интерфейсе.</li>
+</ul>
+<h2>API и обмен данными</h2>
+<ul>
+  <li>Всё — только по <strong>HTTPS/TLS</strong>, с актуальными сертификатами и запретом слабых протоколов.</li>
+  <li>На API — <strong>лимиты запросов</strong> и валидация входных данных на сервере.</li>
+  <li>Секреты — в <strong>защищённом хранилище</strong>, а не в коде и конфигах.</li>
+  <li>Логирование событий безопасности без хранения чувствительных данных.</li>
+</ul>
+<h2>Защита данных</h2>
+<ul>
+  <li>Классификация данных: что можно хранить, а что — нельзя, и где границы <strong>персональных данных</strong>.</li>
+  <li>Шифрование <strong>в покое</strong> (базы, бэкапы, S3) и <strong>при передаче</strong>.</li>
+  <li>Доступ к боевым данным — по запросу и с аудитом: разработчикам — обезличенные копии.</li>
+  <li>Политика хранения и удаления: данные живут столько, сколько нужно бизнесу, а не вечно.</li>
+</ul>
+<h2>OWASP Top 10 и типовые уязвимости</h2>
+<p>Каждый релиз мы прогоняем автоматические сканеры и код-ревью по топ-10 OWASP. Самые частые находки в enterprise-проектах:</p>
+<ul>
+  <li><strong>IDOR</strong> — доступ к чужим объектам через подмену id. Проверяем права на каждый запрос, а не только «залогинен ли пользователь».</li>
+  <li><strong>Инъекции</strong> — SQL/NoSQL/XXE: только параметризованные запросы и белые списки.</li>
+  <li><strong>XSS</strong> — экранирование на выводе и CSP-заголовки.</li>
+  <li><strong>Сломанная авторизация</strong> — JWT с «вечным» сроком жизни, отсутствие ротации ключей.</li>
+</ul>
+<h2>Инфраструктура и процесс</h2>
+<ul>
+  <li><strong>WAF</strong> перед боевым контуром и регулярное обновление сигнатур.</li>
+  <li><strong>Пентесты</strong> не «раз в год», а перед крупными релизами и после изменений в логике доступа.</li>
+  <li><strong>Мониторинг безопасности</strong>: алерты на подозрительную активность, попытки брутфорса, необычные объёмы выгрузки.</li>
+  <li>План <strong>реагирования на инцидент</strong>: кто, что и в какой последовательности делает при утечке.</li>
+</ul>
+<h2>В итоге</h2>
+<p>Безопасность в корпоративных проектах — это <strong>культура и процесс</strong>: чек-листы, код-ревью, автоматические проверки и пентесты на каждом значимом изменении. Один финальный аудит перед запуском не спасает — уязвимости появляются вместе с новым кодом.</p>
+<blockquote>Правило, которое мы используем в Razor и других проектах: <strong>ни одна фича не выходит в прод без проверки прав доступа и валидации ввода</strong>. Это два пункта, которые закрывают большинство реальных атак.</blockquote>
+
+        <div class="article-tags">
+
+        <span class="tag tag-red">#безопасность</span><span class="tag tag-red">#owasp</span><span class="tag tag-red">#devsecops</span><span class="tag tag-blue">#enterprise</span>
+
+        </div>
+        <div class="article-share">Поделиться статьёй — отправить коллеге или сохранить в заметки.</div>
+      </div>
+
+      <div class="article-footer-card">
+        <div class="avatar avatar-blue">О</div>
+        <div class="text">
+          <div class="article-author-name">Олег</div>
+          <div class="article-author-role">Инженер по безопасности</div>
+          <p>Пишем о том, с чем работаем каждый день. Если хотите обсудить тему глубже — напишите нам.</p>
+        </div>
+        <a href="contacts.html" class="btn btn-primary">Обсудить задачу</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>Нужен аудит безопасности вашей системы?</h2>
+        <p>Проверим аутентификацию, API и инфраструктуру, покажем уязвимости и предложим план закрытия — на языке бизнеса и кода.</p>
+        <a href="contacts.html" class="btn btn-light">Заказать аудит</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-badge">И</span>
+            <span>Иностудио</span>
+          </a>
+          <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Решения</h4>
+          <ul>
+            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
+            <li><a href="solutions-hr.html">HR-tech</a></li>
+            <li><a href="solutions-ai.html">ИИ-решения</a></li>
+            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="blog.html">Блог</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Контакты</h4>
+          <ul>
+            <li><a href="mailto:welcome@inostudio.com">welcome@inostudio.com</a></li>
+            <li><a href="tel:+74956404500">+7 (495) 640-45-00</a></li>
+            <li>Таганрог, ул. Октябрьская, 39</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Иностудио. Все права защищены.</span>
+        <span>Без Google-сервисов — только отечественные решения.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
