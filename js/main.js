@@ -33,46 +33,68 @@ function initMenu() {
   });
 }
 
-/* ---------- Фильтры (кейсы и блог) ---------- */
+/* ---------- Фильтры (портфолио: несколько групп; кейсы и блог: одна группа) ---------- */
 function initFilters() {
-  var filterBar = document.getElementById('filterBar');
-  if (!filterBar) return;
+  var bars = document.querySelectorAll('.filter-bar');
+  if (!bars.length) return;
 
   var grid = document.getElementById('casesGrid') || document.getElementById('blogGrid') || document.getElementById('servicesGrid');
   if (!grid) return;
 
   var noResults = document.getElementById('noResults');
-  var buttons = filterBar.querySelectorAll('.filter-btn');
   var emptyMessage = 'В этой категории пока нет материалов. Обратитесь к нам — покажем похожие проекты.';
   if (document.getElementById('servicesGrid')) emptyMessage = 'В этой категории пока нет карточки. Расскажите о задаче — подберём экспертизу.';
+  if (document.getElementById('casesGrid')) emptyMessage = 'В этой выборке пока нет проектов. Сбросьте фильтры или расскажите о задаче — покажем релевантный опыт.';
 
-  buttons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      buttons.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+  var state = {};
 
-      var filter = btn.getAttribute('data-filter');
-      var visibleCount = 0;
+  function valueOf(card, group) {
+    var value = card.getAttribute('data-' + group);
+    if (value === null && group === 'cat') value = card.getAttribute('data-category');
+    return (value || '').split(' ');
+  }
 
-      grid.querySelectorAll('.case-card, .blog-card, .service-card').forEach(function (card) {
-        var categories = (card.getAttribute('data-category') || '').split(' ');
+  function apply() {
+    var visibleCount = 0;
 
-        if (filter === 'all' || categories.indexOf(filter) !== -1) {
-          card.classList.remove('hide');
-          visibleCount++;
-        } else {
-          card.classList.add('hide');
-        }
+    grid.querySelectorAll('.case-card, .blog-card, .service-card').forEach(function (card) {
+      var ok = true;
+
+      Object.keys(state).forEach(function (group) {
+        var filter = state[group];
+        if (!filter || filter === 'all') return;
+        if (valueOf(card, group).indexOf(filter) === -1) ok = false;
       });
 
-      if (noResults) {
-        if (visibleCount === 0) {
-          noResults.style.display = 'block';
-          noResults.innerHTML = '<p>' + emptyMessage + '</p>';
-        } else {
-          noResults.style.display = 'none';
-        }
+      if (ok) {
+        card.classList.remove('hide');
+        visibleCount++;
+      } else {
+        card.classList.add('hide');
       }
+    });
+
+    if (noResults) {
+      if (visibleCount === 0) {
+        noResults.style.display = 'block';
+        noResults.innerHTML = '<p>' + emptyMessage + '</p>';
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+  }
+
+  Array.prototype.forEach.call(bars, function (bar) {
+    var group = bar.getAttribute('data-group') || 'cat';
+    state[group] = 'all';
+
+    bar.querySelectorAll('.filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        bar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state[group] = btn.getAttribute('data-filter');
+        apply();
+      });
     });
   });
 }

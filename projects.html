@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кейсы Иностудио — проекты для крупного бизнеса с измеримым результатом</title>
-  <meta name="description" content="Кейсы Иностудио: Razor (ERP), Р7, СЛПК, МТС Финтех, Альфа-Банк, Lamoda, ДиПОС. Название каждого кейса содержит главное достижение и бизнес-метрику.">
+  <title>Портфолио Иностудио — проекты для крупного бизнеса с метриками</title>
+  <meta name="description" content="Портфолио Иностудио: порталы и личные кабинеты, интеграции и высокие нагрузки, аналитика и BI, ИИ и HR-tech. Реальные проекты с бизнес-метриками и стеком.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -21,9 +21,9 @@
       <nav class="main-nav" id="mainNav">
         <ul>
           <li><a href="index.html">Главная</a></li>
-          <li><a href="solutions.html">Решения</a></li>
+          <li><a href="projects.html" class="active">Портфолио</a></li>
           <li><a href="services.html">Услуги</a></li>
-          <li><a href="projects.html" class="active">Кейсы</a></li>
+          <li><a href="solutions.html">Компетенции</a></li>
           <li><a href="blog.html">Блог</a></li>
           <li><a href="contacts.html">Контакты</a></li>
         </ul>
@@ -40,207 +40,233 @@
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumbs">
-        <a href="index.html">Главная</a> <span>/</span> <span>Кейсы</span>
+        <a href="index.html">Главная</a> <span>/</span> <span>Портфолио</span>
       </div>
-      <h1>Кейсы с бизнес-результатом</h1>
-      <p>Проекты для крупного бизнеса и государства. Название каждого кейса — как заголовок статьи: сразу видно главное достижение и метрику, ради которой стоит открыть и прочитать.</p>
+      <h1>Портфолио: 350+ проектов и измеримый результат</h1>
+      <p>Мы не делим клиентов по отраслям и не продаём «решения» — показываем проекты. Фильтруйте по типу работ и технологиям, открывайте кейс и смотрите метрики: что сделали, на чём и какой результат получил бизнес.</p>
     </div>
   </section>
 
   <section class="section" style="padding-top: 24px;">
     <div class="container">
-      <div class="filter-bar" id="filterBar">
-        <button class="filter-btn active" data-filter="all">Все проекты</button>
-        <button class="filter-btn" data-filter="b2b">B2B-порталы и ЛК</button>
-        <button class="filter-btn" data-filter="hr">HR-tech</button>
-        <button class="filter-btn" data-filter="ai">ИИ-решения</button>
-        <button class="filter-btn" data-filter="bi">Аналитика и BI</button>
+      <div class="portfolio-toolbar">
+        <div class="filter-bar" data-group="cat">
+          <span class="filter-label">Тип работ:</span>
+          <button class="filter-btn active" data-filter="all">Всё портфолио</button>
+          <button class="filter-btn" data-filter="portal">Порталы и личные кабинеты</button>
+          <button class="filter-btn" data-filter="integration">Интеграции</button>
+          <button class="filter-btn" data-filter="load">Высокие нагрузки</button>
+          <button class="filter-btn" data-filter="hr">HR-tech</button>
+          <button class="filter-btn" data-filter="bi">Аналитика и BI</button>
+          <button class="filter-btn" data-filter="ai">ИИ</button>
+        </div>
+        <div class="filter-bar" data-group="tech">
+          <span class="filter-label">Технологии:</span>
+          <button class="filter-btn active" data-filter="all">Любые</button>
+          <button class="filter-btn" data-filter="php">PHP / Laravel</button>
+          <button class="filter-btn" data-filter="node">Node.js</button>
+          <button class="filter-btn" data-filter="react">React / Vue</button>
+          <button class="filter-btn" data-filter="elastic">Elasticsearch</button>
+          <button class="filter-btn" data-filter="postgres">PostgreSQL</button>
+          <button class="filter-btn" data-filter="bitrix">1С-Битрикс</button>
+        </div>
       </div>
 
       <div class="cases-grid" id="casesGrid">
 
-        <!-- B2B -->
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal" data-tech="php react elastic">
           <div class="case-thumb" style="background: linear-gradient(135deg, #169FDB, #0E7EB0);">
             <span class="case-logo">Р7</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-blue">B2B-порталы</span>
+              <span class="tag tag-blue">Порталы и ЛК</span>
               <span class="tag tag-blue">База знаний</span>
             </div>
             <h3><a class="case-title-link" href="case-r7-support.html">Р7 — центр поддержки: база знаний, где клиенты сами находят ответы</a></h3>
             <p>Редизайн и развитие портала поддержки крупного B2B-вендора ПО: меньше ожидания оператора, выше самообслуживание.</p>
+            <div class="case-result"><strong>−30%</strong> типовых обращений в поддержку</div>
             <a href="case-r7-support.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal integration" data-tech="php react postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #3C3C3B, #8A8A88);">
             <span class="case-logo">Р7-Офис</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-blue">B2B-порталы</span>
-              <span class="tag tag-blue">Личный кабинет</span>
+              <span class="tag tag-blue">Порталы и ЛК</span>
+              <span class="tag tag-blue">Интеграции</span>
             </div>
             <h3>Р7-Офис: личные кабинеты B2B-клиентов — заявки и лицензии без менеджера</h3>
             <p>Сложная система с ролями, интеграциями и личными кабинетами для клиентов вендора офисного ПО.</p>
+            <div class="case-result"><strong>24/7</strong> заявки и лицензии онлайн</div>
             <a href="contacts.html" class="case-link">Обсудить похожий проект →</a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal load integration" data-tech="php node react elastic postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #E4003A, #C00030);">
             <span class="case-logo">Razor</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-blue">B2B / ERP</span>
-              <span class="tag tag-blue">Высокая нагрузка</span>
+              <span class="tag tag-red">Высокие нагрузки</span>
+              <span class="tag tag-blue">Интеграции</span>
             </div>
             <h3><a class="case-title-link" href="case-razor.html">Razor: высоконагруженная ERP — отчётность и поиск в реальном времени для тысяч сотрудников</a></h3>
             <p>Десятки миллионов операций, быстрый поиск по большим данным и интеграции с десятками систем.</p>
+            <div class="case-result"><strong>40+ млн</strong> документов, поиск &lt;100 мс</div>
             <a href="case-razor.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal integration" data-tech="php react postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #00A984, #00856A);">
             <span class="case-logo">СЛПК</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-blue">Корпоративный портал</span>
-              <span class="tag tag-blue">B2B</span>
+              <span class="tag tag-blue">Порталы и ЛК</span>
+              <span class="tag tag-blue">Интеграции</span>
             </div>
             <h3><a class="case-title-link" href="case-slpk.html">СЛПК: корпоративный портал группы компаний — все предприятия в едином контуре</a></h3>
             <p>Единая точка входа для предприятий лесопромышленного холдинга: сервисы, документы и коммуникации.</p>
+            <div class="case-result"><strong>1 контур</strong> для всех предприятий группы</div>
             <a href="case-slpk.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal" data-tech="php react">
           <div class="case-thumb" style="background: linear-gradient(135deg, #8A6400, #FBBB21);">
             <span class="case-logo">Абитуриент</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
+              <span class="tag tag-blue">Порталы и ЛК</span>
               <span class="tag tag-blue">Личный кабинет</span>
             </div>
             <h3>Личный кабинет абитуриента: онлайн-заявки вместо очередей в приёмной комиссии</h3>
             <p>Подача документов, статусы и уведомления онлайн — для образовательных порталов и вузов.</p>
+            <div class="case-result"><strong>0 очередей</strong> в приёмной кампании</div>
             <a href="contacts.html" class="case-link">Обсудить похожий проект →</a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal" data-tech="node react">
           <div class="case-thumb" style="background: linear-gradient(135deg, #0E7EB0, #00A984);">
             <span class="case-logo">Mojo</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
+              <span class="tag tag-blue">Порталы и ЛК</span>
               <span class="tag tag-blue">Сложный веб-сервис</span>
             </div>
             <h3>Mojo: международная платформа — запуск в нескольких странах на единой архитектуре</h3>
             <p>Сложный веб-сервис с личными кабинетами и локализацией для международного проекта.</p>
+            <div class="case-result"><strong>Несколько стран</strong> на одной архитектуре</div>
             <a href="contacts.html" class="case-link">Обсудить похожий проект →</a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="b2b">
+        <div class="case-card reveal" data-cat="portal load" data-tech="php elastic postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #5A5A58, #8A8A88);">
             <span class="case-logo">Scilinkr</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-blue">Сложный сервис</span>
+              <span class="tag tag-blue">Порталы и ЛК</span>
+              <span class="tag tag-red">Поиск</span>
             </div>
             <h3>Scilinkr: сеть учёных — профили, публикации и быстрый поиск исследователей</h3>
             <p>Социальная сеть для научного сообщества с профилями, публикациями и полнотекстовым поиском.</p>
+            <div class="case-result"><strong>Полнотекстовый</strong> поиск по публикациям</div>
             <a href="contacts.html" class="case-link">Обсудить похожий проект →</a>
           </div>
         </div>
 
-        <!-- HR-tech -->
-        <div class="case-card reveal" data-category="hr">
+        <div class="case-card reveal" data-cat="hr integration" data-tech="php node react">
           <div class="case-thumb" style="background: linear-gradient(135deg, #00A651, #00D4A3);">
             <span class="case-logo">МТС Финтех</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
               <span class="tag tag-yellow">HR-tech</span>
-              <span class="tag tag-yellow">Карьерный сайт</span>
+              <span class="tag tag-blue">Интеграции</span>
             </div>
             <h3><a class="case-title-link" href="case-mts-fintech.html">МТС Финтех: карьерный сайт, который привлекает ИТ-специалистов</a></h3>
             <p>Карьерный портал с личным кабинетом кандидата и аналитикой воронки найма для крупной ИТ-команды.</p>
+            <div class="case-result"><strong>1 кабинет</strong> кандидата + аналитика найма</div>
             <a href="case-mts-fintech.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="hr">
+        <div class="case-card reveal" data-cat="hr integration" data-tech="php react postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #E31E24, #7A0C0F);">
             <span class="case-logo">Альфа-Банк</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
               <span class="tag tag-yellow">HR-tech</span>
-              <span class="tag tag-yellow">Карьерный портал</span>
+              <span class="tag tag-blue">Интеграции</span>
             </div>
             <h3><a class="case-title-link" href="case-alfa-bank.html">Альфа-Банк: 4 года развития карьерного портала крупнейшего частного банка</a></h3>
             <p>Стабильный поток сильных кандидатов, интеграции с HR-системами и развитие на основе данных.</p>
+            <div class="case-result"><strong>4 года</strong> развития, 8+ интеграций</div>
             <a href="case-alfa-bank.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="hr">
+        <div class="case-card reveal" data-cat="hr" data-tech="node react postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #E6007E, #FF6B35);">
             <span class="case-logo">Lamoda</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
               <span class="tag tag-yellow">HR-tech</span>
-              <span class="tag tag-yellow">Карьерный сайт</span>
               <span class="tag tag-yellow">TMS</span>
             </div>
             <h3><a class="case-title-link" href="case-lamoda.html">Lamoda: карьерный сайт и TMS — таланты e-commerce лидера в единой системе</a></h3>
             <p>Управление талантами тысяч сотрудников: оценка, развитие и карьерные треки в одном контуре.</p>
+            <div class="case-result"><strong>1000+</strong> сотрудников в TMS</div>
             <a href="case-lamoda.html" class="case-link">Читать кейс <span class="arrow">→</span></a>
           </div>
         </div>
 
-        <div class="case-card reveal" data-category="hr">
+        <div class="case-card reveal" data-cat="hr" data-tech="php bitrix">
           <div class="case-thumb" style="background: linear-gradient(135deg, #1E3A8A, #3B82F6);">
             <span class="case-logo">ДиПОС</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
               <span class="tag tag-yellow">HR-tech</span>
-              <span class="tag tag-yellow">Карьерный сайт</span>
+              <span class="tag tag-blue">1С-Битрикс</span>
             </div>
             <h3>ДиПОС ПКФ: карьерный сайт промышленного холдинга для закрытия производственных вакансий</h3>
             <p>Карьерный портал с отраслевой спецификой: инженерные и производственные вакансии, история компании.</p>
+            <div class="case-result"><strong>Онлайн</strong> все производственные вакансии</div>
             <a href="contacts.html" class="case-link">Обсудить похожий проект →</a>
           </div>
         </div>
 
-        <!-- ИИ-решения (пилот) -->
-        <div class="case-card reveal" data-category="ai">
+        <div class="case-card reveal" data-cat="ai load" data-tech="node elastic">
           <div class="case-thumb" style="background: linear-gradient(135deg, #E4003A, #6A4CFF);">
             <span class="case-logo">🤖 ИИ</span>
           </div>
           <div class="case-body">
             <div class="case-meta">
-              <span class="tag tag-red">ИИ-решения</span>
+              <span class="tag tag-red">ИИ</span>
+              <span class="tag tag-red">Высокие нагрузки</span>
             </div>
             <h3>ИИ-ассистент поддержки: отвечает на типовые вопросы 24/7 — запускаем пилот</h3>
             <p>База знаний с ИИ-агентом для ответов клиентам без ожидания оператора. Готовы запустить с вашей командой.</p>
+            <div class="case-result"><strong>до 80%</strong> типовых вопросов без оператора</div>
             <a href="contacts.html" class="case-link">Запустить пилот →</a>
           </div>
         </div>
 
-        <!-- Аналитика (пилот) -->
-        <div class="case-card reveal" data-category="bi">
+        <div class="case-card reveal" data-cat="bi" data-tech="react postgres">
           <div class="case-thumb" style="background: linear-gradient(135deg, #00A984, #38BDF8);">
             <span class="case-logo">📊 BI</span>
           </div>
@@ -250,6 +276,7 @@
             </div>
             <h3>BI-дашборд руководителя: продажи, финансы и операции на одном экране — за 2–4 недели</h3>
             <p>Пилотный дашборд по вашим данным: единая картина для быстрых управленческих решений.</p>
+            <div class="case-result"><strong>12 систем → 1</strong> дашборд руководителя</div>
             <a href="contacts.html" class="case-link">Заказать пилот →</a>
           </div>
         </div>
@@ -257,7 +284,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 40px; display: none;" id="noResults">
-        <p>В этой категории пока нет кейсов. Обратитесь к нам — покажем похожие проекты.</p>
+        <p>В этой выборке пока нет проектов. Сбросьте фильтры или расскажите о задаче — покажем релевантный опыт.</p>
       </div>
     </div>
   </section>
@@ -265,8 +292,8 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-box reveal">
-        <h2>Не нашли свой кейс?</h2>
-        <p>Расскажите о задаче — покажем релевантные проекты и предложим решение с измеримым результатом.</p>
+        <h2>Не нашли похожий проект?</h2>
+        <p>Расскажите о задаче — покажем релевантные кейсы из портфолио и предложим решение с измеримым результатом.</p>
         <a href="contacts.html" class="btn btn-light">Связаться с нами</a>
       </div>
     </div>
@@ -283,19 +310,19 @@
           <p>Разработка и интеграции, HR-tech, ИИ-решения, аналитика данных для крупного бизнеса и государства.</p>
         </div>
         <div class="footer-col">
-          <h4>Решения</h4>
+          <h4>Портфолио</h4>
           <ul>
-            <li><a href="solutions-b2b.html">B2B-порталы и ЛК</a></li>
-            <li><a href="solutions-hr.html">HR-tech</a></li>
-            <li><a href="solutions-ai.html">ИИ-решения</a></li>
-            <li><a href="solutions-bi.html">Аналитика и BI</a></li>
+            <li><a href="projects.html">Все проекты</a></li>
+            <li><a href="case-razor.html">ERP Razor</a></li>
+            <li><a href="case-r7-support.html">Р7 — центр поддержки</a></li>
+            <li><a href="case-alfa-bank.html">Карьерный портал Альфа-Банка</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Компания</h4>
           <ul>
             <li><a href="services.html">Услуги</a></li>
-            <li><a href="projects.html">Кейсы</a></li>
+            <li><a href="solutions.html">Компетенции</a></li>
             <li><a href="blog.html">Блог</a></li>
             <li><a href="contacts.html">Контакты</a></li>
           </ul>
