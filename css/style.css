@@ -401,13 +401,26 @@ p {
 }
 
 .clients-section .clients-section-title {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gray);
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+  margin-bottom: 28px;
   text-align: center;
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.clients-section .clients-section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gradient-red);
 }
 
 /* Бегущая строка с логотипами */
