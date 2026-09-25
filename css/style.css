@@ -2523,4 +2523,86 @@ p {
   }
 }
 
+/* ==========================================================================
+   Выпадающее меню «Решения»
+   ========================================================================== */
+.main-nav li.has-dropdown {
+  position: relative;
+}
+
+.main-nav .nav-caret {
+  display: inline-block;
+  font-size: 9px;
+  margin-left: 5px;
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+.main-nav li.has-dropdown:hover .nav-caret {
+  transform: translateY(-1px) rotate(180deg);
+}
+
+.main-nav .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 300px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  padding: 8px 0;
+  flex-direction: column;
+  gap: 0;
+  z-index: 200;
+}
+
+.main-nav li.has-dropdown:hover .dropdown {
+  display: flex;
+}
+
+.main-nav .dropdown li {
+  width: 100%;
+}
+
+.main-nav .dropdown a {
+  display: block;
+  padding: 11px 22px;
+  font-size: 14px;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.main-nav .dropdown a::after {
+  display: none;
+}
+
+.main-nav .dropdown a:hover {
+  color: var(--red);
+  background: var(--light-gray);
+}
+
+@media (max-width: 768px) {
+  .main-nav .nav-caret {
+    display: none;
+  }
+
+  .main-nav .dropdown {
+    position: static;
+    display: block;
+    min-width: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 18px;
+    background: transparent;
+  }
+
+  .main-nav .dropdown a {
+    padding: 10px 0;
+    font-size: 15px;
+  }
+}
+
 
